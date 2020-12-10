@@ -1,0 +1,19 @@
+Pra tu acessar godaddy
+Tferreira1984@yahoo.com.br
+Senha: @inesraulrita1984
+
+Pra acessar Hostinger
+Tferreira1984@yahoo.com.br
+Senha: raul2803
+
+
+https://petquenos.com.br
+
+IP do FTP	ftp://151.106.96.109
+Hostname do FTP	ftp://petquenos.com.br
+Nome de usuário do FTP	u184808072
+Porta do FTP	21
+Pasta para upload de arquivos	public_html
+
+u184808072.acessoftppetquenos
+Mend411Fin070
