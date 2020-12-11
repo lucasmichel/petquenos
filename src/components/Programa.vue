@@ -56,19 +56,30 @@
                           ref="formLogin"
                           lazy-validation
                         >
-                          <v-text-field
+                          <!--<v-text-field
                             label="Login"
                             name="login"
                             v-model="objFormLogin.login"
                             prepend-inner-icon="mdi-account"
                             type="text"
                             :rules="loginRules"
-                          />
+                          />-->
+                          <v-select
+                            :items="itensLogin"
+                            label="Login"
+                            v-model="objFormLogin.login"
+                            prepend-inner-icon="mdi-account"
+                            dense
+                            outlined
+                            :rules="loginRules"
+                          ></v-select>
+
                           <v-text-field
                             label="Senha"
                             v-model="objFormLogin.senha"
                             prepend-inner-icon="mdi-form-textbox-password"
-                            color="blue darken-3"
+                            dense
+                            outlined
                             :append-icon="
                               valuePassword ? 'mdi-eye-off' : 'mdi-eye'
                             "
@@ -450,6 +461,7 @@ export default {
   data: () => ({
     date: new Date().toISOString().substr(0, 10),
     menu: false,
+    itensLogin: ["rita", "angela", "suellen"],
 
     valuePassword: true,
 
@@ -725,6 +737,11 @@ export default {
               login: this.objForm.login,
               dataExame: moment(this.date).format("DD_MM_YYYY"),
             };
+            let nomePdf =
+              this.objForm.nomeAnimal +
+              "_" +
+              moment(this.date).format("DD_MM_YYYY") +
+              ".pdf";
 
             this.$axios
               .post(
@@ -754,10 +771,7 @@ export default {
                     link.click();
                     this.limparCampos();
                     this.$dialog.message.success(
-                      this.objForm.nomeAnimal +
-                        "_" +
-                        moment(this.date).format("DD_MM_YYYY") +
-                        ".pdf gerado com sucesso!!!!",
+                      nomePdf + " gerado com sucesso!!!!",
                       {
                         position: "top-right",
                         timeout: 5000,
